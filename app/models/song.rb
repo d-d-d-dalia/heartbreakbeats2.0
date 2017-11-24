@@ -9,10 +9,4 @@ class Song < ApplicationRecord
 
   	accepts_nested_attributes_for :song_vibes
 
-  	def song_vibe_attributes(vibe_selections)
-  		vibe_selections.each do |key, value|
-  		
-      	end
-  	end
-
 end

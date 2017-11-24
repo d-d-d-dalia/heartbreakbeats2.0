@@ -10,7 +10,8 @@ class SongsController < ApplicationController
   end
 
   def create
-   		# @song = Song.new(song_params)
+    binding.pry
+   		@song = Song.new(song_params)
   end
 
   def show
@@ -20,7 +21,7 @@ class SongsController < ApplicationController
   private
 
   	def song_params
-      params.require(:song).permit(:name, :artist, :song_vibes)
+      params.require(:song).permit(:name, :artist, song_vibes_attributes: [:level, vibe_attributes: [:name]])
     end
 
 end

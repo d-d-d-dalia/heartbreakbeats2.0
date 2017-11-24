@@ -20,8 +20,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
-		# @message = flash[:notice]
+		@user = current_user
 	end
 
 private
