@@ -1,7 +1,7 @@
 class VibesController < ApplicationController
 
 	def new
-   	@review = Review.new
+   	@vibe = Vibe.new
   end
 
   def create

@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?, :require_login
   
-  before_action :require_login
-  skip_before_action :require_login, only: [:homepage]
+  # before_action :require_login
+  # skip_before_action :require_login, only: [:homepage]
 
   def homepage
   end
