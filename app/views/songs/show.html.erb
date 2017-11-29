@@ -1,1 +1,14 @@
+<p>Song:</p>
 <%= @song.name %> <br>
+<p>Artist:</p>
+<%= @song.artist %>
+<p>vibes:</p>
+
+<% @song.vibes.each do |vibe| %>
+	<%= vibe.name %>
+		<% @song.song_vibes.each do |v| %>
+			<p> level: <%= v.level %> </p>		 
+		<% end %> 
+<% end %> <br>
+
+<%= link_to "edit song", edit_song_path(@song) %>

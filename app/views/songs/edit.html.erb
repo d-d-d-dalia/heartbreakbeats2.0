@@ -1,0 +1,41 @@
+<%= form_for @song do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br>
+  <br>
+
+  <%= f.label :artist %>
+  <%= f.text_field :artist %> <br>
+
+  <br>
+
+  <%= f.fields_for :song_vibes, @song.song_vibes.build do |s_v| %>
+  	<%= s_v.fields_for :vibe, @song.song_vibes.build.build_vibe do |v| %>
+  	<%= v.label "New Vibe" %>
+  	<%= v.text_field :name %>
+
+  	<%= s_v.label "Level (1-5)" %>
+  	<%= s_v.text_field :level %>
+  	<% end %> 
+  <% end %> <br>
+
+  <br>
+
+    <% @song.song_vibes.each do |s_v| %>
+      <% if s_v.id != nil %>
+        	<%= s_v.vibe.name %>
+        	<%= f.fields_for :song_vibes, s_v do |s_v_f| %>
+        		<%= s_v_f.fields_for :vibe, s_v.vibe do |v_f| %>
+        			<%= v_f.hidden_field :name %>
+        		<% end %> 
+        		<%= s_v_f.label "Level (1-5)" %>
+        		<%= s_v_f.text_field :level %> <br>
+        	<% end %>
+        <% end %> <br>
+      <% end %> 
+
+  <br>
+
+  <%= f.submit "Edit Song" %>
+
+<% end %>

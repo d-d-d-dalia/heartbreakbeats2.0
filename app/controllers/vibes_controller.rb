@@ -17,12 +17,12 @@ class VibesController < ApplicationController
 
   def update
    	@vibe = Vibe.find(params[:id])
-    	if @vibe.update(vibe_params)
-      	flash[:success] = "Vibes Updated"
-      	redirect_to user_path(current_user)
-    	else
-      	render :edit
-   		end
+    if @vibe.update(vibe_params)
+      flash[:success] = "Vibes Updated"
+      redirect_to user_path(current_user)
+    else
+      render :edit
+   	end
  	end
 
   def destroy

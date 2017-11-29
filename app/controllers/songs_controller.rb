@@ -1,25 +1,33 @@
 class SongsController < ApplicationController
 
 	def index
-    	@songs = Song.all
+    @songs = Song.all
  	end
 
   def new
-   		@song = Song.new
-      @vibes = Vibe.all
+   	@song = Song.new
+    @vibes = Vibe.all
   end
 
   def create
-   		@song = current_user.songs.build(song_params)
-      if @song.save
-        redirect_to user_path(current_user)
-      else
-        render :new
+   	@song = current_user.songs.build(song_params)
+    if @song.save
+      redirect_to user_path(current_user)
+    else
+      render :new
     end
   end
 
   def show
-  		@song = Song.find(params[:id])
+  	@song = Song.find(params[:id])
+  end
+
+  def edit
+    @song = Song.find(params[:id])
+  end
+
+  def update
+    redirect_to song_path(@song)
   end
 
   private

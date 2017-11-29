@@ -17,12 +17,12 @@ class UsersController < ApplicationController
 	  	else
 	  		flash[:error] = @user.errors.full_messages
 	  		redirect_to signup_path
-
 	  	end
 	end
 
 	def show
 		@user = User.find(params[:id])
+		@song = Song.find(params[:id])
 	end
 
 private

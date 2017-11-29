@@ -1,9 +1,20 @@
-<%= @user.username %> <br>
+<h1> User: <%= @user.username %> </h1><br>
+
+<h3> Songs: </h3> <br>
 
 <% @user.songs.each do |song| %>
-	<%= song.name %>
+	<p>Song name:</p>
+	<%= link_to song.name, song_path %> <br>
+	<p>Artist name:</p>
+	<%= song.artist %>
+		<% song.vibes.each do |vibe| %>
+			<p> vibes: </p>
+				<% song.song_vibes.each do |v| %>
+					<p> <%= vibe.name %> - level: <%= v.level %></p>		
+				<% end %> 
+		<% end %> <br>
+<% end %> 
 
-	<%= song.song_vibes %>
-<% end %> <br>
+<br>
 
 <%= link_to "add a new song", new_song_path %>
