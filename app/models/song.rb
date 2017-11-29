@@ -7,6 +7,6 @@ class Song < ApplicationRecord
 
   	validates :name, :artist, :song_vibes, presence: true
 
-  	accepts_nested_attributes_for :song_vibes, reject_if :proc {|attributes| attributes['level'].blank?}
-
+  	accepts_nested_attributes_for :song_vibes, reject_if: proc { |attributes| attributes['level'].blank? }
+  	
 end

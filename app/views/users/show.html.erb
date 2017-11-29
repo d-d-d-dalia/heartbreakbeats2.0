@@ -1,7 +1,9 @@
 <%= @user.username %> <br>
 
 <% @user.songs.each do |song| %>
-<%= song.name %>
+	<%= song.name %>
+
+	<%= song.song_vibes %>
 <% end %> <br>
 
 <%= link_to "add a new song", new_song_path %>
