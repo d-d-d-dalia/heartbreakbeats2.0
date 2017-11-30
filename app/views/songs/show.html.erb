@@ -11,4 +11,5 @@
 		<% end %> 
 <% end %> <br>
 
-<%= link_to "edit song", edit_song_path(@song) %>
+<%= link_to "edit song", edit_song_path(@song) %> <br>
+<%= link_to "delete song", controller: "songs", action: "destroy" %>

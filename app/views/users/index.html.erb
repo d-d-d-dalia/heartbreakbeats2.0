@@ -1,0 +1,7 @@
+<% @users.each do |u| %>
+	<p> Users: </p> <br>
+	<%= link_to u.username, user_path(u) %> <br>
+		<% u.songs.each do |s| %>
+			<%= link_to s.name, song_path(s) %> <br>
+		<%end%>
+<%end%>

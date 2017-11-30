@@ -30,6 +30,14 @@ class SongsController < ApplicationController
     redirect_to song_path(@song)
   end
 
+  def destroy
+    # what is @song here though?
+    if @song
+      @song.destroy
+      redirect_to user_path(current_user)
+    end
+  end
+
   private
 
   	def song_params

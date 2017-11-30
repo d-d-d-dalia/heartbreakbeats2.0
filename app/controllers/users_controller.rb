@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+	def index
+		@users = User.all
+	end
+
 	def new
 		if session[:user_id]
       		@user = User.find(session[:user_id])
@@ -22,7 +26,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@song = Song.find(params[:id])
+		# @song = Song.find(params[:id])
 	end
 
 private

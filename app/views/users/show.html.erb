@@ -7,14 +7,18 @@
 	<%= link_to song.name, song_path %> <br>
 	<p>Artist name:</p>
 	<%= song.artist %>
-		<% song.vibes.each do |vibe| %>
-			<p> vibes: </p>
-				<% song.song_vibes.each do |v| %>
-					<p> <%= vibe.name %> - level: <%= v.level %></p>		
-				<% end %> 
-		<% end %> <br>
+	<p> vibes: </p>
+	<% song.vibes.each do |vibe| %>	
+		<% song.song_vibes.each do |v| %>
+		<p> <%= vibe.name %> - level: <%= v.level %></p>		
+		<% end %> 
+	<% end %> <br>
 <% end %> 
 
 <br>
 
-<%= link_to "add a new song", new_song_path %>
+<%= link_to "add a new song", new_song_path %> <br>
+
+<br>
+
+<%= link_to "signout", logout_path %>
