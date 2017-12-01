@@ -1,15 +1,17 @@
 <p>Song:</p>
 <%= @song.name %> <br>
+
 <p>Artist:</p>
 <%= @song.artist %>
+
 <p>vibes:</p>
 
 <% @song.vibes.each do |vibe| %>
-	<%= vibe.name %>
-		<% @song.song_vibes.each do |v| %>
-			<p> level: <%= v.level %> </p>		 
-		<% end %> 
+	<p> <%= vibe.name %> </p>
+	<p> level: <%= @song.song_vibes.find(vibe.id).level %> </p>
 <% end %> <br>
 
 <%= link_to "edit song", edit_song_path(@song) %> <br>
-<%= link_to "delete song", controller: "songs", action: "destroy" %>
+<!-- delete here refers to the verb column in rake routes, but WHY? (not the controller action - "destroy") -->
+<%= form_tag song_path(@song), method: "delete" %>
+<%= submit_tag "delete song" %> 

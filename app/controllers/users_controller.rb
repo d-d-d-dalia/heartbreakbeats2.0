@@ -26,7 +26,15 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		# @song = Song.find(params[:id])
+	end
+
+	def edit
+	end
+
+	def update
+	end
+
+	def destroy
 	end
 
 private

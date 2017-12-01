@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :songs
-  resources :users
+
+  resources :users do
+    resources :songs
+  end
+  
   resources :vibes
   resources :sessions
 

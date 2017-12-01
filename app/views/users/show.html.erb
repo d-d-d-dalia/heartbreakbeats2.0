@@ -8,10 +8,8 @@
 	<p>Artist name:</p>
 	<%= song.artist %>
 	<p> vibes: </p>
-	<% song.vibes.each do |vibe| %>	
-		<% song.song_vibes.each do |v| %>
-		<p> <%= vibe.name %> - level: <%= v.level %></p>		
-		<% end %> 
+	<% song.song_vibes.each do |v| %>
+		<p> <%= v.vibe.name %> - level: <%= v.level %></p>
 	<% end %> <br>
 <% end %> 
 
