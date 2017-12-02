@@ -14,12 +14,3 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6}
 
 end
-
-# optimism
-# patheticism
-# denial
-# hopefulness
-# acceptance
-# anger
-# indignation
-# loathing

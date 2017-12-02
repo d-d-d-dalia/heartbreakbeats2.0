@@ -46,7 +46,7 @@ class SongsController < ApplicationController
   private
 
   	def song_params
-      params.require(:song).permit(:name, :artist, song_vibes_attributes: [:level, vibe_attributes: [:name]])
+      params.require(:song).permit(:name, :artist, song_vibes_attributes: [:level, :song_id, :id, vibe_attributes: [:name]])
     end
 
 end
