@@ -6,9 +6,9 @@
 
 <p>vibes:</p>
 
-<% @song.vibes.each do |vibe| %>
-	<p> <%= vibe.name %> </p>
-	<p> level: <%= @song.song_vibes.find(vibe.id).level %> </p>
+<% @song.song_vibes.each do |s_v| %>
+
+	<p> <%= s_v.vibe.name %> level: <%= s_v.level %> </p>
 <% end %> <br>
 
 <%= link_to "edit song", edit_song_path(@song) %> <br>

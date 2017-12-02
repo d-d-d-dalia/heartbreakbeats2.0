@@ -10,7 +10,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    # binding.pry
+    
    	@song = current_user.songs.build(song_params)
     if @song.save
       redirect_to user_path(current_user)
@@ -28,10 +28,12 @@ class SongsController < ApplicationController
   end
 
   def update
-
     @song = Song.find(params[:id])
-    binding.pry
-    redirect_to song_path(@song)
+    if @song.update(song_params)
+      redirect_to song_path(@song)
+    else
+      redirect_to edit_song_path(@song)
+    end
   end
 
   def destroy

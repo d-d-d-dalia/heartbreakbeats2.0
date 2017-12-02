@@ -1,0 +1,3 @@
+    <% @song.song_vibes.each do |s_v| %>
+      <% if s_v.id != nil %>
+        	<%= s_v.vibe.name %>

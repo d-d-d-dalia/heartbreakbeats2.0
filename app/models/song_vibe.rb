@@ -8,9 +8,12 @@ class SongVibe < ApplicationRecord
 
   	def vibe_attributes=(vibe_selections)
   		vibe_selections.each do |key, value|
-          if value != ""
-  			     vibe = Vibe.find_or_create_by(name: value)
-  			     self.vibe = vibe
+       
+          if value != "" && !self.vibe
+             # binding.pry
+  			     self.vibe = Vibe.find_or_create_by(name: value)
+          elsif value != ""
+              self.vibe.update(name: value)
           end
       	end
   	end

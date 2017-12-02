@@ -4,7 +4,7 @@
 
 <% @user.songs.each do |song| %>
 	<p>Song name:</p>
-	<%= link_to song.name, song_path %> <br>
+	<%= link_to song.name, song_path(song) %> <br>
 	<p>Artist name:</p>
 	<%= song.artist %>
 	<p> vibes: </p>
