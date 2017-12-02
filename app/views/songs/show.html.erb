@@ -5,9 +5,7 @@
 <%= @song.artist %>
 
 <p>vibes:</p>
-
 <% @song.song_vibes.each do |s_v| %>
-
 	<p> <%= s_v.vibe.name %> level: <%= s_v.level %> </p>
 <% end %> <br>
 
