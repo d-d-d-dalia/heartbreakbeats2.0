@@ -32,6 +32,10 @@ class VibesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def most_severe_vibes
+    @most_severe_vibes = Vibe.highest_level
+  end
+
 private
 
   def vibe_params
