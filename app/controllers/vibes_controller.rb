@@ -28,6 +28,7 @@ class VibesController < ApplicationController
   def destroy
     @vibe = Vibe.find(params[:id])
    	@vibe.destroy
+    # purpose of this is that if you delete a vibe that is associated with songs already, then it will break when trying then to list out the song_vibes, bc they won't have a vibe to associate to 
     SongVibes.where(:vibe_id => params[:id]).destroy_all
     flash[:success] = "vibe deleted"
     redirect_to new_song_path

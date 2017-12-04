@@ -20,5 +20,6 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
+  get '/users/:id/severevibes', to: 'song_vibes#most_severe_vibes', as: "song_vibes"
 
 end

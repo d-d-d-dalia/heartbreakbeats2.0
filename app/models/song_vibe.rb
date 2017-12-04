@@ -16,12 +16,9 @@ class SongVibe < ApplicationRecord
     end
   end
 
-  def self.highest_level
+  def self.highest_level(user_id)
       @most_severe_vibes = self.all.select do |s_v|
-          s_v.level == 5
-      end
-      @most_severe_vibes.map do |s_v|
-          s_v.song
+        s_v.level == 5 && s_v.song.user_id == user_id
       end
   end
 
