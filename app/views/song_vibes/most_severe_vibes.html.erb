@@ -1,5 +1,5 @@
 
-<h1> Songs with most severe vibes: </h1>
+<h1> <%="#{@user.username}"%> - songs with most severe vibes: </h1>
 
 <% @most_severe_vibes.each do |v| %>
 <%= link_to "#{v.song.name}", user_song_path(v.song.user, v.song) %>
