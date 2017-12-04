@@ -16,4 +16,13 @@ class SongVibe < ApplicationRecord
     end
   end
 
+  def self.highest_level
+      @most_severe_vibes = self.all.select do |s_v|
+          s_v.level == 5
+      end
+      @most_severe_vibes.map do |s_v|
+          s_v.song
+      end
+  end
+
 end
