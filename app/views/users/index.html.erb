@@ -3,6 +3,6 @@
 	<%= link_to u.username, user_path(u) %> <br>
 	<p> Songs: </p>
 		<% u.songs.each do |s| %>
-			<%= link_to s.name, song_path(s) %> <br>
+			<%= link_to s.name, user_song_path(s.user, s) %> <br>
 		<%end%>
 <%end%>

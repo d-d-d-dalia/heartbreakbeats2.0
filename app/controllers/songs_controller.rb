@@ -10,16 +10,18 @@ class SongsController < ApplicationController
   end
 
   def create
-    
    	@song = current_user.songs.build(song_params)
     if @song.save
       redirect_to user_path(current_user)
     else
-      render :new
+      @vibes = Vibe.all
+      flash[:error] = @song.errors.full_messages
+      redirect_to new_song_path
     end
   end
 
   def show
+    @user = User.find(params[:user_id])
   	@song = Song.find(params[:id])
   end
 
@@ -32,15 +34,14 @@ class SongsController < ApplicationController
     if @song.update(song_params)
       redirect_to song_path(@song)
     else
+      flash[:error] = @song.errors.full_messages
       redirect_to edit_song_path(@song)
     end
   end
 
   def destroy
-    # what is @song here though?
     Song.find(params[:id]).destroy
     redirect_to user_path(current_user)
-
   end
 
   private

@@ -9,7 +9,17 @@
 	<p> <%= s_v.vibe.name %> level: <%= s_v.level %> </p>
 <% end %> <br>
 
-<%= link_to "edit song", edit_song_path(@song) %> <br>
-<!-- delete here refers to the verb column in rake routes, but WHY? (not the controller action - "destroy") -->
-<%= form_tag song_path(@song), method: "delete" %>
-<%= submit_tag "delete song" %> 
+<% if @user == current_user %>
+	<%= link_to "Edit Song", edit_song_path(@song) %> <br>
+	<!-- delete here refers to the verb column in rake routes, but WHY? (not the controller action - "destroy") -->
+	<%= form_tag song_path(@song), method: "delete" %>
+	<%= submit_tag "Delete Song" %> 
+<%end%>
+
+<br>
+
+<br>
+<p>Account Homepage:</p>
+<%= link_to "#{@song.user.username}", user_path(@song.user) %>  <br>
+<p>User Index:</p>
+<%= link_to "all users", users_path %>

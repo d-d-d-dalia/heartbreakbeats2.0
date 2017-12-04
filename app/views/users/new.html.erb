@@ -1,9 +1,7 @@
 <h1>Sign up</h1>
 
-<% if flash[:error] %>
-	<% flash[:error].each do |error| %> 
-		<%= error %> <br>
-	<% end %> 
-<% end %>
-
 <%= render "form" %>
+
+<br>
+
+<%= link_to "Or, Sign In", signin_path %>

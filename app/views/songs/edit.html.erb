@@ -1,8 +1,14 @@
 <%= form_for @song do |f| %>
 
+  <% if flash[:error] %>
+    <% flash[:error].each do |error| %> 
+      <%= error %> <br>
+    <% end %> 
+  <% end %>
+
   <%= f.label :name %>
   <%= f.text_field :name %> <br>
-  
+
   <br>
 
   <%= f.label :artist %>
@@ -41,3 +47,7 @@
   <%= f.submit "Edit Song" %>
 
 <% end %>
+
+<br>
+
+<%= link_to "Go Back", user_song_path(@song.user, @song) %>

@@ -1,4 +1,8 @@
 <% @songs.each do |s| %>
-	<%= link_to s.name, song_path(s) %> <br>
-	<%= s.artist %>
+	<%= link_to s.name, user_song_path(s.user, s) %> <br>
+	<%= s.artist %> <br>
+
+	<br>
 <%end%>
+
+<%= link_to "all users", users_path %>
