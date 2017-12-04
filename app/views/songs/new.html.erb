@@ -35,6 +35,8 @@
   		<%= s_v.fields_for :vibe, @song.song_vibes.build.build_vibe do |v_f| %>
   			<%= v_f.hidden_field :name, value: v.name %>
       <% end %> 
+    <%= form_tag vibe_path(v), method: "delete" %>
+    <%= submit_tag "delete vibe" %> 
   	<%= s_v.label "Level (1-5)" %>
   	<%= s_v.text_field :level %> <br>
   	<% end %>

@@ -18,7 +18,7 @@ class VibesController < ApplicationController
   def update
    	@vibe = Vibe.find(params[:id])
     if @vibe.update(vibe_params)
-      flash[:success] = "Vibes Updated"
+      flash[:success] = "vibes Updated"
       redirect_to user_path(current_user)
     else
       render :edit
@@ -28,8 +28,8 @@ class VibesController < ApplicationController
   def destroy
     @vibe = current_user.vibes.find(params[:id])
    	@vibe.destroy
-    flash[:success] = "Vibe deleted"
-    redirect_to user_path(current_user)
+    flash[:success] = "vibe deleted"
+    redirect_to new_song_path
   end
 
 private
