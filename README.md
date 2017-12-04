@@ -1,26 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Overview
 
-Things you may want to cover:
+Heartbreak beats is a rails app that was created in the aftermath of some breakup(s) in the spirit of cathartic processing. It is meant for users to document songs with lyrical content dealing with pain and loss in romantic love. Users can associate "vibes" with each song and attribute a level for each vibe from 1-5. It is a alternative to genre categorization, and re-focusses attention on the sentiment of songs and the emotions those sentiments illicit in us as heartbroken listeners.
 
-* Ruby version
+To install this app, follow these steps:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# heartbreakbeats
-#test
+Fork and clone this repository. $ bundle install $ rails db:migrate $ rails db:seed $ rails server to open up the browser In your browser, enter http:localhost:3000.
