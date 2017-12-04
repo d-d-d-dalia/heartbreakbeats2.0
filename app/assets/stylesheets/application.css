@@ -17,3 +17,7 @@
 .field_with_errors {
 	color: red;
 }
+
+.delete_vibe_form {
+	display: inline;
+}

@@ -26,8 +26,9 @@ class VibesController < ApplicationController
  	end
 
   def destroy
-    @vibe = current_user.vibes.find(params[:id])
+    @vibe = Vibe.find(params[:id])
    	@vibe.destroy
+    SongVibes.where(:vibe_id => params[:id]).destroy_all
     flash[:success] = "vibe deleted"
     redirect_to new_song_path
   end

@@ -16,7 +16,7 @@ class SongsController < ApplicationController
     else
       @vibes = Vibe.all
       flash[:error] = @song.errors.full_messages
-      redirect_to new_song_path
+      render :new
     end
   end
 
@@ -35,7 +35,7 @@ class SongsController < ApplicationController
       redirect_to song_path(@song)
     else
       flash[:error] = @song.errors.full_messages
-      redirect_to edit_song_path(@song)
+      render :edit
     end
   end
 

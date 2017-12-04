@@ -32,18 +32,30 @@
   <% @vibes.each do |v| %>
   	<%= v.name %>
   	<%= f.fields_for :song_vibes, @song.song_vibes.build do |s_v| %>
+
   		<%= s_v.fields_for :vibe, @song.song_vibes.build.build_vibe do |v_f| %>
-  			<%= v_f.hidden_field :name, value: v.name %>
+  		<%= v_f.hidden_field :name, value: v.name %>
+
       <% end %> 
-    <%= form_tag vibe_path(v), method: "delete" %>
-    <%= submit_tag "delete vibe" %> 
+
   	<%= s_v.label "Level (1-5)" %>
-  	<%= s_v.text_field :level %> <br>
+  	<%= s_v.text_field :level %>
+
+    <%= link_to "delete vibe", vibe_path(v), :method => :delete %><br>
+
   	<% end %>
-  <% end %> <br>
+
+  <% end %> 
+  
+  <br>
 
   <br>
 
   <%= f.submit "Add Song" %>
 
 <% end %>
+
+<p>Account Homepage:</p>
+<%= link_to current_user.username, user_path(current_user) %>  <br>
+<p>User Index:</p>
+<%= link_to "all users", users_path %>
