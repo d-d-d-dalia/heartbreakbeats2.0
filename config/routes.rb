@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   get '/users/:id/severevibes', to: 'song_vibes#most_severe_vibes', as: "song_vibes"
 
+  get '/auth/facebook/callback', to: 'sessions#oauth'
+
 end
