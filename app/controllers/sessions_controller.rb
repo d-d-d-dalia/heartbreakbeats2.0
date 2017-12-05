@@ -21,9 +21,10 @@ class SessionsController < ApplicationController
 	end
 
 	def oauth
-    	user = User.find_or_create_by_omniauth(auth)
-    	session[:user_id] = user.id
-    	redirect_to root_path
+		# binding.pry
+    	@user = User.find_or_create_by_omniauth(auth)
+    	session[:user_id] = @user.id
+    	redirect_to user_path(@user)
   	end
 
 private
