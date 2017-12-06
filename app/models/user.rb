@@ -18,7 +18,7 @@ class User < ApplicationRecord
       user.email = auth_hash[:info][:email]
       user.password = SecureRandom.hex
     end
-    binding.pry
+
   end
 
 end
