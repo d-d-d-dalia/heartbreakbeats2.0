@@ -6,6 +6,8 @@ class SongVibe < ApplicationRecord
   	validates :level, inclusion: {in: 1..5}
   	validates :level, numericality: {only_integer: true}
 
+    validates_uniqueness_of :vibe_id, scope: :song_id
+
   def vibe_attributes=(vibe_selections)
     vibe_selections.each do |key, value|
       if value != "" && Vibe.find_by(name: value)

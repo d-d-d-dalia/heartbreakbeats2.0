@@ -32,7 +32,7 @@ class SongsController < ApplicationController
   def update
     @song = Song.find(params[:id])
     if @song.update(song_params)
-      redirect_to song_path(@song)
+      redirect_to user_song_path(current_user, @song)
     else
       flash[:error] = @song.errors.full_messages
       render :edit
