@@ -27,10 +27,13 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    # HOW TO MAKE @VIBES ALL VIBES THAT AREN'T ALREADY ASSOCIATED SO THAT THEY DON'T APPEAR TWICE ON THE EDIT FORM
+    @vibes = Vibe.all
   end
 
   def update
     @song = Song.find(params[:id])
+    @vibes = Vibe.all
     if @song.update(song_params)
       redirect_to user_song_path(current_user, @song)
     else

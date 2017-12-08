@@ -1,12 +1,14 @@
 class SongVibe < ApplicationRecord
 
-    belongs_to :song
-  	belongs_to :vibe
+  belongs_to :song
+  belongs_to :vibe
 
-  	validates :level, inclusion: {in: 1..5}
-  	validates :level, numericality: {only_integer: true}
+  validates :level, inclusion: {in: 1..5}
+  validates :level, numericality: {only_integer: true}
 
-    validates_uniqueness_of :vibe_id, scope: :song_id
+  # each vibe_id can appear in a song once
+  # song_vibe is validating that the vibe it is associated with is unique in relation to the song it is being associated with
+  validates_uniqueness_of :vibe_id, scope: :song_id
 
   def vibe_attributes=(vibe_selections)
     vibe_selections.each do |key, value|
@@ -19,9 +21,9 @@ class SongVibe < ApplicationRecord
   end
 
   def self.highest_level(user_id)
-      @most_severe_vibes = self.all.select do |s_v|
-        s_v.level == 5 && s_v.song.user_id == user_id
-      end
+    @most_severe_vibes = self.all.select do |s_v|
+      s_v.level == 5 && s_v.song.user_id == user_id
+    end
   end
 
 end

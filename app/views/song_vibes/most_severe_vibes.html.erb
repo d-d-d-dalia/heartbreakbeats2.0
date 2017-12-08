@@ -3,4 +3,5 @@
 
 <% @most_severe_vibes.each do |v| %>
 <%= link_to "#{v.song.name}", user_song_path(v.song.user, v.song) %>
-<% end %>
+<br>
+<% end %> 

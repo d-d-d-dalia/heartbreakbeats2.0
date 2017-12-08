@@ -28,18 +28,10 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
-	def edit
-	end
-
-	def update
-	end
-
-	def destroy
-	end
-
 private
 
 	def user_params
+		# params(:user) must always exist, and the user may also set the following (but not other params)....:
      	params.require(:user).permit(:username, :password, :email, :iud)
     end
 	

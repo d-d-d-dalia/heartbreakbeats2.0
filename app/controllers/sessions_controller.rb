@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 	end
 
 	def create
+		# find the user by the username that was submitted by the form
 		@user = User.find_by(:username => params[:user][:username])
   		if @user && @user.authenticate(params[:user][:password])
 		    session[:user_id] = @user.id
@@ -29,6 +30,7 @@ class SessionsController < ApplicationController
 
 private
 
+# DO I NEED THIS?
 	def auth
     	request.env['omniauth.auth']
   	end
