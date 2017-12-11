@@ -2,7 +2,7 @@
 
 Overview
 
-Heartbreak beats is a rails app that was created in the aftermath of some breakup(s) in the spirit of cathartic processing. It is meant for users to document songs with lyrical content dealing with pain and loss in romantic love. Users can associate "vibes" with each song and attribute a level for each vibe from 1-5. It is a alternative to genre categorization, and re-focusses attention on the sentiment of songs and the emotions those sentiments elicit in us as heartbroken listeners.
+Heartbreak beats is a rails app that was created in the aftermath of some breakup(s), in the spirit of cathartic processing. It is meant for users to document songs with lyrical content dealing with pain and loss in romantic love. Users can associate "vibes" with each song and attribute a level for each vibe from 1-5. Heartbreakbeats is meant as an alternative to genre categorization, and re-focusses attention on a song's sentiment(s), and the emotions those sentiments elicit in us as heartbroken listeners.
 
 To install this app, follow these steps:
 
