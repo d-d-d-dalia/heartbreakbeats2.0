@@ -44,20 +44,21 @@
 
   <br>
 
-<!--   NEED TO FIURE OUT HOW TO MAKE VIBES THAT ALREADY EXIST NOT TO APPEAR BELOW -->
-
   <% @vibes.each do |v| %>
-    <%= v.name %>
-    <%= f.fields_for :song_vibes, @song.song_vibes.build do |s_v| %>
+  <!--  MAKE VIBES THAT ALREADY EXIST NOT TO APPEAR BELOW -->
+    <% if !@song.vibes.include?(v) %>
+      <%= v.name %>
+      <%= f.fields_for :song_vibes, @song.song_vibes.build do |s_v| %>
 
-      <%= s_v.fields_for :vibe, @song.song_vibes.build.build_vibe do |v_f| %>
-      <%= v_f.hidden_field :name, value: v.name %>
+        <%= s_v.fields_for :vibe, @song.song_vibes.build.build_vibe do |v_f| %>
+        <%= v_f.hidden_field :name, value: v.name %>
 
-      <% end %> 
+        <% end %> 
 
-    <%= s_v.label "Level (1-5)" %>
-    <%= s_v.text_field :level %> <br>
+      <%= s_v.label "Level (1-5)" %>
+      <%= s_v.text_field :level %> <br>
 
+      <% end %>
     <% end %>
   <% end %> 
 

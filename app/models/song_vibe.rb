@@ -11,6 +11,7 @@ class SongVibe < ApplicationRecord
   validates_uniqueness_of :vibe_id, scope: :song_id
 
   def vibe_attributes=(vibe_selections)
+    # this is only necessary because of the uniqueness requirement of vibe based on its name
     vibe_selections.each do |key, value|
       if value != "" && Vibe.find_by(name: value)
         self.vibe_id = Vibe.find_by(name: value).id
