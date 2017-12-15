@@ -1,1 +1,13 @@
     <%= link_to "delete vibe", vibe_path(v), :method => :delete %><br> 
+
+
+    <% unique = @most_severe_vibes.song_vibe.id %>
+<% unique.each do |v| %>
+
+
+
+.each do |v|
+			if !@most_severe_vibes.include?(v)
+				@most_severe_vibes << v
+
+			end

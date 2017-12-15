@@ -16,6 +16,7 @@
   <br>
 
   <% 3.times do %>
+  <!-- note: build requires you to tell it something about something else i.e. have an associative relationship with another model -->
 <!--   build_ is called an associated build, so it already has a song_id -->
 <!-- scoping around a specific model object -->
     <%= f.fields_for :song_vibes, @song.song_vibes.build do |s_v_builder| %>
