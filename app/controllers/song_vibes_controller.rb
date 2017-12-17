@@ -2,8 +2,7 @@ class SongVibesController < ApplicationController
 
 	def most_severe_vibes
 		@user = current_user
-		@most_severe_vibes = SongVibe.highest_level(current_user.id)
-		# @songs = Song.all(current_user.id)
+		@song_hash = SongVibe.highest_level(current_user.id)
 	end
 
 end

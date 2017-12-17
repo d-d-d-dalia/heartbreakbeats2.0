@@ -22,18 +22,25 @@ class SongVibe < ApplicationRecord
   end
 
   def self.highest_level(user_id)
-    @most_severe_vibes = self.all.select do |s_v|
+    song_hash = {}
+    most_severe_vibes = self.all.select do |s_v|
       s_v.level == 5 && s_v.song.user_id == user_id
     end
+
+    most_severe_vibes.each do |song_vibe|
+      song = Song.find(song_vibe["song_id"])
+      vibe = Vibe.find(song_vibe["vibe_id"])
+      # this is checking to make sure that vibe doesn't already appear in the hash and if it doesn't, it sets it to an empty array
+      song_hash[vibe.name] = song_hash[vibe.name] || []
+      # e.g., this is the first time thru
+      # {
+      #   "loss": []
+      # }  
+      # this syntax is how you push a value into a hash
+      # what is inside the parens evaluates to a empty array bc of line 34. pushing song into an array, and that array is inside the hash, as the value of the vibe name key
+      (song_hash[vibe.name]) << song
+    end
+    song_hash
   end
-
-  # def self.most_severe_vibes
-  #   @user = current_user
-  #   @most_severe_vibes = SongVibe.highest_level(current_user.id)
-
-  #   @most_severe_vibes.map do |v|
-  #     v.vibe
-  #   end.uniq
-  # end
 
 end

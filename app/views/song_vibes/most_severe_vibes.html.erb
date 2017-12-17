@@ -1,9 +1,13 @@
 
 <h1> <%="#{@user.username}"%> - songs with most severe vibes: </h1>
 
-<% @most_severe_vibes.each do |v| %>
-	<%= v.vibe.name %>
-		<%= link_to "#{v.song.name}", user_song_path(v.song.user, v.song) %>
+<% @song_hash.each do |v, s_array| %>
 <br>
-<%= @vibes %>
+	<h4><%= v %></h4>
+	<br>
+	<% s_array.each do |s| %>
+		<%= link_to "#{s.name}", user_song_path(s.user, s) %> <br>
+	<% end %>
 <% end %>
+
+<br>
