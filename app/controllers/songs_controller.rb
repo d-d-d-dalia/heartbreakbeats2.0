@@ -1,7 +1,8 @@
 class SongsController < ApplicationController
 
   def index
-    @songs = Song.all
+    @songs = current_user.songs
+    render json: @songs
   end
 
   def new
