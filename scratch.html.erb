@@ -1,17 +1,5 @@
-    <%= link_to "delete vibe", vibe_path(v), :method => :delete %><br> 
-
-
-    <% unique = @most_severe_vibes.song_vibe.id %>
-<% unique.each do |v| %>
-
-
-
-.each do |v|
-			if !@most_severe_vibes.include?(v)
-				@most_severe_vibes << v
-
-			end
-
-
-
-			<%= link_to "#{v.song.name}", user_song_path(v.song.user, v.song) %>
+1. from user song index page, have a more button that makes more songs in the list appear. (also, remove vibes from this page)
+2. next and previous buttons to flip thru show pages.
+3. isn't this taken care of by 2?
+4. on flip-thru-able show pages, the edit button would magic transform the page into edit form and there would be a save button as well to magic edit the song show page
+5. no idea
