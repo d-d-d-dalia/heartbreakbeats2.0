@@ -4,16 +4,18 @@
 
 <% @user.songs.each do |song| %>
 
+	<ul id="song_list"> </ul>
+
 	<p>Song name:</p>
 	<%= link_to song.name, user_song_path(song.user, song) %> <br>
 
 	<p>Artist name:</p>
-	<%= song.artist %>
+	<%= song.artist %> <br>
 
-	<p> vibes: </p>
-	<% song.song_vibes.each do |v| %>
-		<p> <%= v.vibe.name %> - level: <%= v.level %> </p>
-	<% end %> <br>
+	<!-- <p> vibes: </p> -->
+	<%# song.song_vibes.each do |v| %>
+		<!-- <p>  --><%#= v.vibe.name %> <!-- - level: --> <%#= v.level %> <!-- </p> -->
+	<%# end %> <!-- <br> -->
 
 <% end %> 
 
