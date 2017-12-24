@@ -1,13 +1,21 @@
-<p>Song:</p>
+<p> Song: </p>
+<div id="song_name">
 <%= @song.name %> <br>
+</div>
 
-<p>Artist:</p>
+<p> Artist: </p>
+<div id="song_artist">
 <%= @song.artist %>
+</div>
 
-<p>vibes:</p>
+<p> vibes: </p>
+<div id="song_vibes">
 <% @song.song_vibes.each do |s_v| %>
 	<p> <%= s_v.vibe.name %> level: <%= s_v.level %> </p>
 <% end %> <br>
+</div>
+
+<a href="" id="link_to_next" >Next</a>
 
 <% if @user == current_user %>
 	<%= link_to "Edit Song", edit_song_path(@song) %> <br>
@@ -19,6 +27,7 @@
 <br>
 
 <br>
+
 <p>Account Homepage:</p>
 <%= link_to "#{@song.user.username}", user_path(@song.user) %>  <br>
 <p>User Index:</p>

@@ -20,4 +20,10 @@ class User < ApplicationRecord
     end
   end
 
+  def next_song (song_id)
+    self.songs.find do |song|
+      song.id > song_id.to_i
+    end
+  end
+
 end

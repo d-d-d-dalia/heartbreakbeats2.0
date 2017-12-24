@@ -7,7 +7,14 @@
 2. next and previous buttons to flip thru show pages.
 
 3. isn't this taken care of by 2?
+(D Martinez: "and for #3, you'd have to be able to render the has many resource in the same AJAX call (as opposed to two different ones like we did first)")
+
+just make sure to use serializer in order to render vibe data
 
 4. on flip-thru-able show pages, the edit button would magic transform the page into edit form and there would be a save button as well to magic edit the song show page
 
 5. no idea
+
+(D Martinex "yeah, that's the main focus of requirement #5 - building JS model objects with at least one method on the prototype from the AJAX responses")
+
+this can happen in any one ajax req. it could also be for all of them, esp if i'm dealing with song data throughout.

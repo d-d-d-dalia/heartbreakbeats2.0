@@ -26,6 +26,11 @@ class SongsController < ApplicationController
   	@song = Song.find(params[:id])
   end
 
+  def next_song
+    @song = current_user.next_song(params[:id])
+    render json: @song
+  end
+
   def edit
     @song = Song.find(params[:id])
     # HOW TO MAKE @VIBES ALL VIBES THAT AREN'T ALREADY ASSOCIATED SO THAT THEY DON'T APPEAR TWICE ON THE EDIT FORM
