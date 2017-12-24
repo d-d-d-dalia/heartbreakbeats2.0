@@ -1,3 +1,8 @@
+<!-- using erb to pass song id from ruby/html to js. usually script tags note that the stuff inside is js FYI-->
+<script type="text/javascript">
+	var current_song_id = <%= @song.id %>
+</script>
+
 <p> Song: </p>
 <div id="song_name">
 <%= @song.name %> <br>
@@ -16,6 +21,9 @@
 </div>
 
 <a href="" id="link_to_next" >Next</a>
+
+<br>
+<br>
 
 <% if @user == current_user %>
 	<%= link_to "Edit Song", edit_song_path(@song) %> <br>
