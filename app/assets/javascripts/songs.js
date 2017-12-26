@@ -18,8 +18,20 @@ function listSongs () {
 
 function nextSong () {
   $("#link_to_next").click(function () {
+    // event.preventDefault()
     $.getJSON(`/songs/${current_song_id}/next`, function(next_song) {
-      $("#song_name").replaceWith(next_song.name)
+      console.log(next_song)
+      console.log("hi")
+      $("#song_name").text(next_song.name)
+      $("#song_artist").text(next_song.artist)
+      $("#song_vibes").text(next_song.vibes)
+      current_song_id = next_song.id
+      // $("#link_to_next").off("click")
     })
   })
 }
+
+
+// use a constructor and the constructor will construct JS objects
+// have to make a class
+// all of the JSON responses need to be in the form of model objects where you use a constructor

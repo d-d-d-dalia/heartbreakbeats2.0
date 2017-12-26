@@ -20,10 +20,20 @@ class User < ApplicationRecord
     end
   end
 
+  # def next_song (song_id)
+  #   # song = songs.find(song_id)
+  #   # binding.pry
+  #   # if song.id == songs.last.id
+  #   #   # song = songs.first
+  #   # end
+
+  # end
+
   def next_song (song_id)
-    self.songs.find do |song|
+    nextSong = songs.find do |song|
       song.id > song_id.to_i
     end
+    nextSong ? nextSong : songs.first
   end
 
 end
