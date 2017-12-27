@@ -4,7 +4,7 @@
 
 	*didn't use more button, but completed this
 	
-2. next and previous buttons to flip thru show pages.
+2. next (and previous) button to flip thru show pages.
 
 3. isn't this taken care of by 2?
 (D Martinez: "and for #3, you'd have to be able to render the has many resource in the same AJAX call (as opposed to two different ones like we did first)")
@@ -18,3 +18,9 @@ just make sure to use serializer in order to render vibe data
 (D Martinex "yeah, that's the main focus of requirement #5 - building JS model objects with at least one method on the prototype from the AJAX responses")
 
 this can happen in any one ajax req. it could also be for all of them, esp if i'm dealing with song data throughout.
+
+
+J:
+use a constructor and the constructor will construct JS objects
+have to make a class
+all of the JSON responses need to be in the form of model objects where you use a constructor

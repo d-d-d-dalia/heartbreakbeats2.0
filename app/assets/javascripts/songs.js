@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
     // loadSongIndexes()
   })
 
-// Cat index on User home
+// Song index on User home
 // the second argument of .getJSON is the function you call on the result of the query to the endpoint (in this case /songs)
 function listSongs () {
   $.getJSON("/songs", function(songs){
@@ -18,20 +18,21 @@ function listSongs () {
 
 function nextSong () {
   $("#link_to_next").click(function () {
-    // event.preventDefault()
     $.getJSON(`/songs/${current_song_id}/next`, function(next_song) {
-      console.log(next_song)
-      console.log("hi")
       $("#song_name").text(next_song.name)
       $("#song_artist").text(next_song.artist)
-      $("#song_vibes").text(next_song.vibes)
-      current_song_id = next_song.id
-      // $("#link_to_next").off("click")
+      $("#song_vibes").text("")
+      // we are iterating thru song_vibes and for each one, we are scanning the vibes array to find the one with the matching id so we can pull out it's name
+      next_song.song_vibes.forEach (function(s_v) {
+        next_song.vibes.forEach (function (v) {
+          if (s_v.vibe_id === v.id) {
+            $("#song_vibes").append(
+                                    "<p>" + v.name + " level: " + s_v.level + "</p>")
+          }
+        })
+      }) 
+
     })
+  current_song_id = next_song.id
   })
 }
-
-
-// use a constructor and the constructor will construct JS objects
-// have to make a class
-// all of the JSON responses need to be in the form of model objects where you use a constructor
