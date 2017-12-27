@@ -23,6 +23,7 @@ function nextSong () {
       $("#song_artist").text(next_song.artist)
       $("#song_vibes").text("")
       // we are iterating thru song_vibes and for each one, we are scanning the vibes array to find the one with the matching id so we can pull out it's name
+      //can check songs/:id/next to view song object to get an idea
       next_song.song_vibes.forEach (function(s_v) {
         next_song.vibes.forEach (function (v) {
           if (s_v.vibe_id === v.id) {
