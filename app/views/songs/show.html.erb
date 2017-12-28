@@ -2,35 +2,37 @@
 <script type="text/javascript">
 	var current_song_id = <%= @song.id %>
 </script>
+<div id="all_song_info">
+	<p> Song: </p>
+	<div id="song_name">
+	<%= @song.name %> <br>
+	</div>
 
-<p> Song: </p>
-<div id="song_name">
-<%= @song.name %> <br>
+	<p> Artist: </p>
+	<div id="song_artist">
+	<%= @song.artist %>
+	</div>
+
+	<p> vibes: </p>
+	<div id="song_vibes">
+	<% @song.song_vibes.each do |s_v| %>
+		<p> <%= s_v.vibe.name %> level: <%= s_v.level %> </p>
+	<% end %> <br>
+	</div>
+
+	<button id="link_to_next" >Next</button>
+
+	<br>
+	<br>
+
+	<% if @user == current_user %>
+		<button id="edit" data-id="<%= @song.id %>">Edit</button>
+		<%#= link_to "Edit Song", edit_song_path(@song) %> <br>
+		<!-- delete here refers to the verb column in rake routes, but WHY? (not the controller action - "destroy") -->
+		<%= form_tag song_path(@song), method: "delete" %>
+		<%= submit_tag "Delete Song" %> 
+	<%end%>
 </div>
-
-<p> Artist: </p>
-<div id="song_artist">
-<%= @song.artist %>
-</div>
-
-<p> vibes: </p>
-<div id="song_vibes">
-<% @song.song_vibes.each do |s_v| %>
-	<p> <%= s_v.vibe.name %> level: <%= s_v.level %> </p>
-<% end %> <br>
-</div>
-
-<button id="link_to_next" >Next</button>
-
-<br>
-<br>
-
-<% if @user == current_user %>
-	<%= link_to "Edit Song", edit_song_path(@song) %> <br>
-	<!-- delete here refers to the verb column in rake routes, but WHY? (not the controller action - "destroy") -->
-	<%= form_tag song_path(@song), method: "delete" %>
-	<%= submit_tag "Delete Song" %> 
-<%end%>
 
 <br>
 

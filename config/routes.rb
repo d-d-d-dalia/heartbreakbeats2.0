@@ -26,4 +26,6 @@ Rails.application.routes.draw do
 
   get '/songs/:id/next', to: 'songs#next_song'
 
+  # get 'songs/:id/edit_song', to: 'songs#edit_song'
+
 end
