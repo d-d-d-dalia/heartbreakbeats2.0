@@ -35,7 +35,6 @@ function nextSong () {
       }) 
       current_song_id = next_song.id
     })
-
   })
 }
 
