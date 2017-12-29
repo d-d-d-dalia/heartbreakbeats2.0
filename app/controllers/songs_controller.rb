@@ -31,11 +31,6 @@ class SongsController < ApplicationController
     render json: @song
   end
 
-  # def edit_song
-  #   @song = Song.find(params[:id])
-  #   render json: @song
-  # end
-
   def edit
     @song = Song.find(params[:id])
     @vibes = Vibe.all

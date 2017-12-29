@@ -2,7 +2,6 @@ $(document).on('turbolinks:load', function() {
     listSongs()
     nextSong()
     editSong()
-    // loadSongIndexes()
   })
 
 // Song index on User home
@@ -28,6 +27,7 @@ function nextSong () {
         next_song.vibes.forEach (function (v) {
           if (s_v.vibe_id === v.id) {
             $("#song_vibes").append(
+              //formatter is going to replace the below code with a function call which would return this string
                                     "<p>" + v.name + " level: " + s_v.level + "</p>")
           }
         })
@@ -40,14 +40,9 @@ function nextSong () {
 
 function editSong () {
   $("#edit").click(function () {
-    console.log(this.dataset);
-    var songId = this.dataset.id;
-    $.get(`/songs/${songId}/edit`, (data) => {
+    var songId = this.dataset.id
+    $.get(`/songs/${songId}/edit`, function(data){
       $('#all_song_info').html(data);
     })
-    // $.getJSON(`/songs/${current_song_id}/edit_song`, function(edited_song) {
-      
-    // })
   })
-
 }
