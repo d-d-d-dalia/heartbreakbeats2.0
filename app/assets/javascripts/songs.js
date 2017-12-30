@@ -17,8 +17,7 @@ Song.prototype.formatSong = function() {
   return "<li>" + "<a href=\"/users/" + this.user_id + "/songs/" + this.id + "\">" + this.name + "</a>" + " - " + this.artist + "</li>"
 }
 
-Song.prototype.formatAllSongInfo = function() { 
-      return
+Song.prototype.showAllSongInfo = function() { 
       $("#song_name").text(this.name)
       $("#song_artist").text(this.artist)
       $("#song_vibes").text("")
@@ -48,10 +47,10 @@ function listSongs () {
 
 function nextSong () {
   $("#link_to_next").click(function () {
-    current_song_id = next_song.id
     $.getJSON(`/songs/${current_song_id}/next`, function(next_song) {
+      current_song_id = next_song.id
       var this_song = new Song(next_song)
-      this_song.formatAllSongInfo()
+      this_song.showAllSongInfo()
       history.pushState(this_song, "", `/users/${this_song.user_id}/songs/${the_song.id}`)
     })
   })
