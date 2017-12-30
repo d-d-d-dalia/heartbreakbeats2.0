@@ -7,10 +7,10 @@ Heartbreakbeats is a rails app that was created in the aftermath of some breakup
 To install this app, follow these steps:
 
 Fork and clone this repository. 
-bundle install 
-rails db:migrate 
-rails db:seed 
-rails server to open up the browser In your browser, enter http:localhost:3000.
+$ bundle install 
+$ rails db:migrate 
+$ rails db:seed 
+$ rails server to open up the browser In your browser, enter http:localhost:3000.
 
 This project has been licensed under the MIT open source license.
 
