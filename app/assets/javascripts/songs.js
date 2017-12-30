@@ -4,13 +4,30 @@ $(document).on('turbolinks:load', function() {
     editSong()
   })
 
+function Song(song_json) {
+  this.user_id = song_json.user_id
+  this.id = song_json.id
+  this.name = song_json.name
+  this.artist = song_json.artist
+  this.song_vibes = song_json.song_vibes
+  this.vibes = song_json.vibes
+}
+
+Song.prototype.formatSong = function() {
+  return "<li>" + "<a href=\"/users/" + this.user_id + "/songs/" + this.id + "\">" + this.name + "</a>" + " - " + this.artist + "</li>"
+}
+
+Song.prototype.formatAllSongInfo = function() {
+  return  
+}
+
 // Song index on User home
 // the second argument of .getJSON is the function you call on the result of the query to the endpoint (in this case /songs)
 function listSongs () {
   $.getJSON("/songs", function(songs){
     $.each(songs, function(index, song) {
-      $("#song_list").append(
-                            "<li>" + "<a href=\"/users/" + song.user_id + "/songs/" + song.id + "\">" + song.name + "</a>" + " - " + song.artist + "</li>")
+      var the_song = new Song(song)
+      $("#song_list").append(the_song.formatSong())
     })
   })
 }
@@ -44,8 +61,7 @@ function editSong () {
     var songUserId = this.dataset.user
     $.get(`/songs/${songId}/edit`, function(data){
       $('#all_song_info').html(data)
-      // ? : WHAT DO I WANT IN THE PLACE OF SONGID HERE? WHY IS THIS WORKING EXACTLY? BECAUSE THAT DOESN'T REFER TO THE ENTIRE SONG OBJECT AND ITS ATTRIBUTES, BUT ONLY TO THE SONG ID
-      history.pushState(songId, "", `/users/${songUserId}/songs/${songId}/edit`)
+      history.pushState(data, "", `/users/${songUserId}/songs/${songId}/edit`)
     })
   })
 }
