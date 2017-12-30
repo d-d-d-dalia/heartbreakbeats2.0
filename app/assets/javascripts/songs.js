@@ -17,8 +17,22 @@ Song.prototype.formatSong = function() {
   return "<li>" + "<a href=\"/users/" + this.user_id + "/songs/" + this.id + "\">" + this.name + "</a>" + " - " + this.artist + "</li>"
 }
 
-Song.prototype.formatAllSongInfo = function() {
-  return  
+Song.prototype.formatAllSongInfo = function() { 
+      return
+      $("#song_name").text(this.name)
+      $("#song_artist").text(this.artist)
+      $("#song_vibes").text("")
+      // we are iterating thru song_vibes and for each one, we are scanning the vibes array to find the one with the matching id so we can pull out it's name
+      // can check songs/:id/next to view song object to get an idea
+      this.song_vibes.forEach (function(s_v) {
+        this.vibes.forEach (function (v) {
+          if (s_v.vibe_id === v.id) {
+            $("#song_vibes").append(
+                                    "<p>" + v.name + " level: " + s_v.level + "</p>")
+          }
+        })
+      }) 
+      current_song_id = this.id
 }
 
 // Song index on User home
@@ -34,23 +48,11 @@ function listSongs () {
 
 function nextSong () {
   $("#link_to_next").click(function () {
+    current_song_id = next_song.id
     $.getJSON(`/songs/${current_song_id}/next`, function(next_song) {
-      $("#song_name").text(next_song.name)
-      $("#song_artist").text(next_song.artist)
-      $("#song_vibes").text("")
-      history.pushState(next_song, "", `/users/${next_song.user_id}/songs/${next_song.id}`)
-      // we are iterating thru song_vibes and for each one, we are scanning the vibes array to find the one with the matching id so we can pull out it's name
-      // can check songs/:id/next to view song object to get an idea
-      next_song.song_vibes.forEach (function(s_v) {
-        next_song.vibes.forEach (function (v) {
-          if (s_v.vibe_id === v.id) {
-            $("#song_vibes").append(
-              //formatter is going to replace the below code with a function call which would return this string
-                                    "<p>" + v.name + " level: " + s_v.level + "</p>")
-          }
-        })
-      }) 
-      current_song_id = next_song.id
+      var this_song = new Song(next_song)
+      this_song.formatAllSongInfo()
+      history.pushState(this_song, "", `/users/${this_song.user_id}/songs/${the_song.id}`)
     })
   })
 }
