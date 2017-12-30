@@ -30,7 +30,8 @@ Song.prototype.showAllSongInfo = function() {
                                     "<p>" + v.name + " level: " + s_v.level + "</p>")
           }
         })
-      }) 
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach basically, without passing "this" as arg, "this" is defaulting to undefined
+      }, this) 
       current_song_id = this.id
 }
 
@@ -51,7 +52,7 @@ function nextSong () {
       current_song_id = next_song.id
       var this_song = new Song(next_song)
       this_song.showAllSongInfo()
-      history.pushState(this_song, "", `/users/${this_song.user_id}/songs/${the_song.id}`)
+      history.pushState(this_song, "", `/users/${this_song.user_id}/songs/${this_song.id}`)
     })
   })
 }
